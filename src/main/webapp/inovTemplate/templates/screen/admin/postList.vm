@@ -1,0 +1,13 @@
+<table>
+    <tr><td>标题</td><td>发表时间</td><td>操作</td></tr>
+    #foreach($article in $articleList)
+    <tr><td><a href="/view/${article.link}.htm">$article.title</a></td><td>$stringUtils.date2Str($article.createDate)</td><td>
+        <a href="/admin/post.htm?id=$article.link">修改</a>
+        <a href="/?action=articleAction&event_submit_do_deleteArticle=true&id=$article.link"
+           onclick="javascript:return confirm('确定要删除吗？')">删除</a>
+    </td></tr>
+    #end
+</table>
+<script language="javascript">
+    
+</script>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    $control.setTemplate("headMeta.vm").setParameter('title', $title).setParameter("keyWords", $keywords).setParameter("description", $siteMeta.description).setParameter("sectionName", $sectionName)
+<body>
+<div class="wrapper">
+    <div class="content">
+        $control.setTemplate("head.vm").setParameter("siteMeta", $siteMeta)
+        <div class="body">
+            <div class="left main">
+                $screen_placeholder
+            </div>
+            <div class="right">
+                $control.setTemplate("side.vm")
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="footer">
+            $control.setTemplate("foot.vm").setParameter("siteMeta", $siteMeta)
+        </div>
+    </div>
+</div>
+</body>
+</html>

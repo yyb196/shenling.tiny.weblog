@@ -1,0 +1,68 @@
+#if(!$articles || $articles.isEmpty())
+<div class="article">
+    还没有文章
+</div>
+#else
+    #foreach($article in $articles)
+    <div class="article">
+        <h2 class="article-title">
+            <a class="no-underline" href="/view/${article.link}.htm">
+                ${article.title}
+            </a>
+        </h2>
+
+        <div class="margin5">
+            <div class="article-date left">
+                <a class="left" title="$siteMeta.author" href="$siteMeta.host">
+                    <span class="authorIcon"></span>
+                    $siteMeta.author
+                </a>
+                <span class="dateIcon"></span>
+            <span class="left">
+                $stringUtils.date2Str(${article.createDate})
+            </span>
+            </div>
+            <div class="right">
+                <a href="/view/${article.link}.htm#comments" class="left">
+                    <span class="left articles-commentIcon" title="评论数"></span>
+                    ${article.commentCount}
+                </a>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="article-abstract">
+            #esc_noesc(${article.strContent})
+            <div class="clear"></div>
+        </div>
+        <div class="article-footer">
+            <a href="/view/${article.link}.htm" class="left">
+                <span class="left article-browserIcon" title="查看数"></span>
+                ${article.viewCount}
+            </a>
+
+            <div class="left">
+                <span class="tagsIcon" title="标签:"></span>
+                #foreach($oneTag in $stringUtils.split($article.tags, ","))
+
+                    <span>
+                #*<a href="/tags.htm?t=${oneTag}">*#
+                    $oneTag
+                #*</a>*#
+                    #if($velocityHasNext),#end
+            </span>
+                #end
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    #end
+#end
+
+<div class="pagination">
+    #if($hasPre)
+        <a href="javascript:window.history.back()">上一页</a>
+    #end
+    #if($hasNext)
+        <a href="/index.htm?fromDate=${nextDate}&hasPre=true">下一页</a>
+    #end
+</div>

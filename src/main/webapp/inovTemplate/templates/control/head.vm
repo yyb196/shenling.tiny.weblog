@@ -1,0 +1,55 @@
+<div class="header">
+    <div id="caption">
+        <h1 class="title">
+            <a href="/" id="logoTitle">
+                ${siteMeta.title}
+            </a>
+        </h1>
+        <span class="sub-title">${siteMeta.subTitle}</span>
+    </div>
+    #*<div class="fixed"/>*#
+</div>
+<div id="header-navi">
+    <div class="left">
+        <ul>
+            <li>
+                <a class="home" href="/"></a>
+            </li>
+            #*<li>
+                <a href="#">标签墙</a>
+            </li>
+            <li>
+                <a href="#">
+                    Atom
+                    <img src="/images/feed.png" alt="Atom"/>
+                </a>
+            </li>*#
+            <li>
+                <a class="lastNavi" href="javascript:void(0);"></a>
+            </li>
+        </ul>
+    </div>
+    <div class="right" id="statistic">
+        <span>
+            浏览次数
+            <span class='error-msg'>
+                $siteData.viewCount
+            </span>
+            &nbsp;&nbsp;
+        </span>
+        <span>
+            文章总数
+            <span class='error-msg'>
+                $siteData.articleCount
+            </span>
+            &nbsp;&nbsp;
+        </span>
+        <span>
+            评论次数：
+            <span class='error-msg'>
+                $siteData.commentCount
+            </span>
+        </span>
+    </div>
+    <div class="clear"></div>
+</div>

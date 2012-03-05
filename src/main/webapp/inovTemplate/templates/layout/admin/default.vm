@@ -1,0 +1,52 @@
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>后台管理</title>
+    <meta name="keywords" content="后台管理"/>
+    <meta name="description" content="后台管理"/>
+    <meta name="author" content="blog.yutown.com"/>
+    <meta name="generator" content="blog.yutown.com"/>
+    <meta name="copyright" content="blog.yutown.com"/>
+    <meta name="revised" content="blog.yutown.com, 2012"/>
+    <meta http-equiv="Window-target" content="_top"/>
+#*<link type="text/css" rel="stylesheet" href="/i-nov/css/i-nove.css" charset="utf-8"/>*#
+    <link href="blogFeed.do" title="ATOM" type="application/atom+xml" rel="alternate"/>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" type="image/gif" href="/animated_favicon1.gif">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"
+            charset="utf-8"></script>
+    <style>
+        #main {
+            width: 950px;
+            margin: 0 auto;
+        }
+        .col-main {
+            float: right;
+            width: 750px
+        }
+        .col-sub {
+            float: left;
+            width: 190px;
+            background-color: #d5d5d5
+        }
+        .liSelected {
+            background-color: #b6b6b6
+        }
+
+        table{
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+<div id="main">
+    <div style="width:950px"><div><b>$!errMessage</b></div></div>
+    <div class="col-sub">
+        $control.setTemplate("/admin/menu.vm").setParameter("menuId", $menuId)
+    </div>
+    <div class="col-main">
+        $screen_placeholder
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
+    <application>yyb196</application>
+    <version>30</version>
+    <sessions-enabled>true</sessions-enabled>
+
+    <system-properties>
+        <property name="java.util.logging.config.file" value="WEB-INF/classes/logging.properties"/>
+        <property name="file.encoding" value="GBK"/>
+        <property name="DEFAULT_ENCODING" value="GBK"/>
+    </system-properties>
+
+    <static-files>
+        <include path="/favicon.ico"/>
+        <include path="/animated_favicon1.gif"/>
+        <include path="/360buy-union.txt"/>
+        <include path="/robots.txt"/>
+        <include path="/i-nov/**.jpg"/>
+        <include path="/i-nov/**.gif"/>
+        <include path="/i-nov/**.png"/>
+        <include path="/i-nov/**.css"/>
+        <include path="/i-nov/**.properties"/>
+        <include path="/ckeditor/**.png"/>
+        <include path="/ckeditor/**.css"/>
+        <include path="/ckeditor/**.js"/>
+        <include path="/ckeditor/**.gif"/>
+        <include path="/ckeditor/**.txt"/>
+        <include path="/ckeditor/**.pack"/>
+        <include path="/ckeditor/**.jpg"/>
+        <include path="/images/**.png"/>
+        <include path="/images/**.jpg"/>
+        <include path="/images/**.gif"/>
+        <include path="/js/**.js"/>
+        <include path="/css/**.css"/>
+        <include path="/404.html"/>
+    </static-files>
+
+    <static-error-handlers>
+        <handler file="/404.html"/>
+    </static-error-handlers>
+
+</appengine-web-app>

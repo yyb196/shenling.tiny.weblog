@@ -1,0 +1,24 @@
+<form method="post" action="/admin/cacheOpt.htm">
+    <input type="hidden" value="true" name="update"/>
+    <table>
+        <tr>
+            <td>加总评论数：</td><td>
+            <input type="input" name="siteCommentCount" value="0"/></td></tr>
+        <tr>
+            <td>加总文章数：</td><td>
+            <input type="input" name="siteArticleCount" value="0"/></td></tr>
+        <tr>
+            <td>要操作的文章链接：</td><td>
+            <input type="input" name="link" value=""/></tr>
+        <tr>
+            <td>加文章评论数：</td><td>
+            <input type="input" name="articleCommentCount" value="0"/></td></tr>
+        <tr>
+            <td>加文章查看数：</td><td>
+            <input type="input" name="articleViewCount" value="0"/></td></tr>
+        <tr>
+            <td>要释放的缓存key：</td><td>
+            <input type="input" name="cacheKey" value=""/></td></tr>
+        <tr><td colspan="2"><input type="submit" value="submit"/></td> </tr>
+    </table>
+</form>

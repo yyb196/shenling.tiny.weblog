@@ -1,0 +1,168 @@
+<div>
+    <div class="article">
+        <div class="article-header">
+            <div class="article-date">
+                $stringUtils.date2Str(${article.createDate})
+            </div>
+            <div class="article-title">
+                <h2>
+                    <a class="no-underline" href="/view/${article.link}.htm">${article.title}</a>
+                </h2>
+
+                <div class="article-tags">
+                    标签：
+                    #foreach($articleTag in $stringUtils.split($article.tags, ","))
+                        <span>
+                        #*<a href="/tags/${articleTag?url('UTF-8')}">*#
+                            ${articleTag}
+                        #*</a>*#
+                            #if($velocityHasNext),#end
+                    </span>
+                    #end
+                    &nbsp;&nbsp;&nbsp;
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="article-body">
+            #esc_noesc(${article.strContent})
+        </div>
+        <div class="article-details-footer">
+            <div class="left">
+                #if($nextArticlePermalink)
+                    <a href="${nextArticlePermalink}">${nextArticle1Label}${nextArticleTitle}</a><br/>
+                #end
+                #if($previousArticlePermalink)
+                    <a href="${previousArticlePermalink}">${previousArticle1Label}${previousArticleTitle}</a>
+                #end
+            </div>
+            <div class="right">
+                                    <span class="article-create-date left">
+                                        $stringUtils.date2Str(${article.createDate})&nbsp;&nbsp;
+                                    </span>
+                <a href="/view/${article.link}.htm#comments" class="left">
+                    <span class="left commentIcon" title="评论数：">评论数：</span>
+                    <span class="left">${article.commentCount}</span>&nbsp;&nbsp;
+                </a>
+                <a href="/view/${article.link}.htm" class="left">
+                    <span class="left browserIcon" title="阅读数：">阅读数：</span>
+                    <span id="articleViewCount">${article.viewCount}</span>
+                </a>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div style="margin-top: 20px; background: none repeat scroll 0 0 #eeeff1;">
+            #if($nextArticleLink)
+                <div class="right">
+                    <a href="${nextArticleLink}"
+                       style='padding-right: 22px;background: url("/images/icons.gif") no-repeat scroll 100% -240px transparent;'>
+                    ${nextArticleTitle}</a>
+                </div>
+            #end
+            #if($previousArticleLink)
+                <div class="left">
+                    <a href="${previousArticleLink}"
+                            style='padding-left: 22px;background: url("/images/icons.gif") no-repeat scroll 0 -224px transparent;'>
+                    ${previousArticleTitle}</a>
+                </div>
+            #end
+            <div class="clear"></div>
+        </div>
+        <div id="relevantArticles" class="article-relative left" style="width: 50%;"></div>
+        <div id="randomArticles" class="left article-relative"></div>
+        <div class="clear"></div>
+        <div id="externalRelevantArticles" class="article-relative"></div>
+    </div>
+    <div class="clear"></div>
+    <div class="comments" id="comments">
+        #foreach($comment in $commentList)
+            <div id="${comment.oId}" class="comment-body">
+                <div class="comment-panel">
+                    <div class="left comment-author">
+                        <div>
+                            <img alt="${comment.title}" src="${comment.thumbnailURL}"/>
+                        </div>
+                        <div style="display:block">${comment.title}</div>
+                    </div>
+                    <div class="left comment-info">
+                        <div class="left">
+                            $stringUtils.date2Str(${comment.commentDate})
+                        </div>
+                        <div class="right">
+                            <a class="no-underline" href="javascript:replyTo('${comment.oId}');">回复</a>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="comment-content">
+                        #*#esc_noesc(*#${comment.strContent}#*)*#
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        #end
+    </div>
+    <form id="commentForm2" action="/view/${article.link}.htm" method="post">
+        <table id="commentForm" class="comment-form">
+            <tbody>
+                #if($tempComment)
+
+                <tr>
+                    <td colspan="3">
+                        <div style="color:red"><b>加星号的为必填字段！$!errMsg</b></div>
+                    </td>
+                </tr>
+                #elseif($addCommentSuccess)
+                <tr>
+                    <td colspan="3">
+                        <b>评论添加成功</b>
+                    </td>
+                </tr>
+                #end
+            <tr>
+                <td class="right">
+                    名字(*):
+                </td>
+                <td colspan="2" width="400px">
+                    <input type="text" class="normalInput" id="title" name="title" value="$!tempComment.title"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="right">
+                    email(会为您保密*):
+                </td>
+                <td colspan="2">
+                    <input type="text" class="normalInput" id="email" name="email" value="$!tempComment.email"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="right">
+                    个人网址:
+                </td>
+                <td colspan="2">
+                    <input type="text" id="url" name="commenterUrl" value="$!tempComment.commenterUrl"/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <textarea rows="10" cols="96" id="content" name="content"
+                              value="$!tempComment.strContent"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" align="right">
+                    <input type="hidden" name="action" value="commentAction"/>
+                    <input type="hidden" name="event_submit_do_PostComment" value="true"/>
+                    <input type="hidden" name="articleLink" value="${article.link}"/>
+                    <button id="submitCommentButton" onclick="commentSubmit();return false;">提交</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+<script type="text/javascript" language="javascript">
+    var jsTarget = "$!rundata.request.getParameter('jsTarget')";
+</script>
+<script type="text/javascript" src="/js/comment.js" charset="utf-8">
+</script>

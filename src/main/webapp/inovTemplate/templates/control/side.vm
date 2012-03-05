@@ -1,0 +1,99 @@
+<div id="sideNavi" class="side-navi">
+    <div class="item">
+        <h4>公告</h4>
+
+        <div class="marginLeft12 marginTop12">
+            #esc_noesc($!{siteMeta.noticeBoard})
+        </div>
+        #esc_noesc($!{siteMeta.adsStr})
+    </div>
+    <div class="line"></div>
+    <div class="item navi-comments">
+        <h4>最近评论</h4>
+        <ul>
+            #foreach($comment in $recentComments)
+                <li>
+                    <img class='left' title='$!{comment.title}'
+                         alt='$!{comment.title}'
+                         src='$!{comment.thumbnailURL}'/>
+
+                    <div class='left'>
+                        <div>
+                        #*<a target="_blank" href="$!{comment.commenterUrl}">
+                            $!{comment.title}
+                        </a>*#
+                            <a href="/view/${comment.articleLink}.htm#${comment.oId}">
+                                $!{comment.title}
+                            </a>
+                        </div>
+                        <div>
+                            <div title="$!{comment.title}" style="display: block;">
+                                $!{comment.strContent}
+                                <a href="/view/${comment.articleLink}.htm" title="$comment.articleLink">
+                                    >>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='clear'></div>
+                </li>
+            #end
+        </ul>
+    </div>
+    <div class="line"></div>
+
+    <div class="item">
+        <h4>评论最多的文章</h4>
+        <ul id="mostCommentArticles">
+            即将推出
+            #foreach($article in $mostCommentArticles)
+                <li>
+                    <sup>[${article.commentCount}]</sup><a
+                        title="${article.title}"
+                        href="/view/${article.link}.htm">${article.title}
+                </a>
+                </li>
+            #end
+        </ul>
+    </div>
+    <div class="line"></div>
+    <div class="item">
+        <h4>友情链接</h4>
+        <ul id="sideLink" class="navi-tags">
+            即将推出
+            #foreach($link in $links)
+                <li>
+                    <a href="${link.linkAddress}" title="${link.linkTitle}" target="_blank">
+                        <img alt="${link.linkTitle}"
+                             src="http://www.google.com/s2/u/0/favicons?domain=$stringUtils.split($link, "/")[2]"/>
+                    </a>
+                    <a href="${link.linkAddress}" title="${link.linkTitle}" target="_blank">
+                        ${link.linkTitle}
+                    </a>
+                </li>
+            #end
+        </ul>
+    </div>
+    <div class="line"></div>
+
+#*<#if 0 != archiveDates?size>
+<div class="item">
+    <h4>${archiveLabel}</h4>
+    <ul>
+        <#list archiveDates as archiveDate>
+        <li>
+            <#if "en" == localeString?substring(0, 2)>
+            <a href="/archives/${archiveDate.archiveDateYear}/${archiveDate.archiveDateMonth}"
+               title="${archiveDate.monthName} ${archiveDate.archiveDateYear}(${archiveDate.archiveDatePublishedArticleCount})">
+                ${archiveDate.monthName} ${archiveDate.archiveDateYear}</a>(${archiveDate.archiveDatePublishedArticleCount})
+            <#else>
+            <a href="/archives/${archiveDate.archiveDateYear}/${archiveDate.archiveDateMonth}"
+               title="${archiveDate.archiveDateYear} ${yearLabel} ${archiveDate.archiveDateMonth} ${monthLabel}(${archiveDate.archiveDatePublishedArticleCount})">
+                ${archiveDate.archiveDateYear} ${yearLabel} ${archiveDate.archiveDateMonth} ${monthLabel}</a>(${archiveDate.archiveDatePublishedArticleCount})
+            </#if>
+        </li>
+        </#list>
+    </ul>
+</div>
+</#if>*#
+</div>

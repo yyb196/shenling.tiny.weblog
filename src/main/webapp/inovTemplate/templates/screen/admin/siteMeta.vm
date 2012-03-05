@@ -1,0 +1,53 @@
+<form action="/admin/siteMeta.htm" method="post">
+    <input type="hidden" name="action" value="articleAction"/>
+    <input type="hidden" name="event_submit_do_modifySiteMeta" value="true"/>
+    <table>
+        <tr>
+            <td>标题</td>
+            <td><input type="input" name="title" id="title" value="$!siteMeta.title"/></td>
+        </tr>
+        <tr>
+            <td>副标题</td>
+            <td><input type="input" name="subTitle" id="subTitle" value="$!siteMeta.subTitle"/></td>
+        </tr>
+        <tr>
+            <td>Host</td>
+            <td><input type="input" name="host" id="host" value="$!siteMeta.host"/></td>
+        </tr>
+        <tr>
+            <td>Author</td>
+            <td><input type="input" name="author" id="author" value="$!siteMeta.author"/></td>
+        </tr>
+        <tr>
+            <td>KeyWords</td>
+            <td><input type="input" name="keyWords" id="keyWords" value="$!siteMeta.keyWords"/></td>
+        </tr>
+        <tr>
+            <td>每页条数</td>
+            <td><input type="input" name="perPageCount" id="perPageCount" value="$!siteMeta.perPageCount"/></td>
+        </tr>
+        <tr>
+            <td>描述</td>
+            <td><input type="input" name="description" id="description" value="$!siteMeta.description"/></td>
+        </tr>
+        <tr>
+            <td>通知</td>
+            <td><textarea name="noticeBoard" cols="80" rows="10" id="noticeBoard">$!siteMeta.noticeBoard</textarea></td>
+        </tr>
+        <tr>
+            <td>Year</td>
+            <td><input type="input" name="year" id="year" value="$!siteMeta.year"/></td>
+        </tr>
+        <tr>
+            <td>Version</td>
+            <td><input type="input" name="version" id="version" value="$!siteMeta.version"/></td>
+        </tr>
+        <tr>
+            <td>Ads</td>
+            <td><textarea name="ads" cols="80" rows="10" id="ads">$!siteMeta.adsStr</textarea></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="修改"/></td>
+        </tr>
+    </table>
+</form>

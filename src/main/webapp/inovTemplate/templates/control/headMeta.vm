@@ -1,0 +1,32 @@
+<head>
+    <meta charset="UTF-8"/>
+    <title>${title}</title>
+    <meta name="keywords" content="${keyWords}"/>
+    <meta name="description" content="${description}"/>
+    <meta name="author" content="blog.yutown.com"/>
+    <meta name="generator" content="blog.yutown.com"/>
+    <meta name="copyright" content="blog.yutown.com"/>
+    <meta name="revised" content="blog.yutown.com, 2012"/>
+    <meta http-equiv="Window-target" content="_top"/>
+    #if("index" == $sectionName)
+        <meta name="robots" content="noindex, follow">
+    #end
+
+    <link type="text/css" rel="stylesheet" href="/i-nov/css/i-nove.css" charset="utf-8"/>
+    <link href="blogFeed.do" title="ATOM" type="application/atom+xml" rel="alternate"/>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" type="image/gif" href="/animated_favicon1.gif">
+    <script type="text/javascript"
+            src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"
+            charset="utf-8">
+    </script>
+
+    <script type="text/javascript" src="/js/headMeta.js">
+    </script>
+    <link type="text/css" rel="stylesheet" href="/css/shCoreDefault.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/shCore.css" charset="utf-8"/>
+    <script type="text/javascript" src="/js/shCore.js" charset="utf-8">
+    </script>
+    <script type="text/javascript" src="/js/shBrushAll.js" charset="utf-8">
+    </script>
+</head>

@@ -1,0 +1,18 @@
+<center>
+    <h1>文件上传  $!msg  $!id</h1>
+
+    <form name="uploadform" method="post" action="/uploadService.do" ENCTYPE="multipart/form-data">
+        <table border="1" width="450" cellpadding="4" cellspacing="2" bordercolor="#9BD7FF">
+            <tr>
+                <td width="100%" colspan="2">
+                    文件：<input name="file1" size="40" type="file">
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td align="center"><input name="upload" type="submit" value="上传"/></td>
+            </tr>
+        </table>
+    </form>
+</center>

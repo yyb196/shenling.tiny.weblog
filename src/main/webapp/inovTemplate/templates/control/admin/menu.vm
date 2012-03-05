@@ -1,0 +1,23 @@
+<ul>
+    <li class="#if($menuId=="postList")liSelected #end">
+        <a href="/admin/postList.htm" target="_self">文章列表</a>
+    </li>
+    <li class="#if($menuId=="post")liSelected #end">
+        <a href="/admin/post.htm" target="_self">撰写</a>
+    </li>
+    <li class="#if($menuId=="draftList")liSelected #end">
+        <a href="/admin/draftList.htm" target="_self">草稿</a>
+    </li>
+    <li class="#if($menuId=="siteMeta")liSelected #end">
+        <a href="/admin/siteMeta.htm" target="_self">站点信息</a>
+    </li>
+    <li class="#if($menuId=="fileUpload")liSelected #end">
+        <a href="/admin/fileUpload.htm" target="_blank">文件上传</a>
+    </li>
+    <li class="#if($menuId=="cacheOpt")liSelected #end">
+        <a href="/admin/cacheOpt.htm" target="_self">缓存管理</a>
+    </li>
+    <li>
+        <a href="/index.htm" target="_self">跳转到首页</a>
+    </li>
+</ul>
